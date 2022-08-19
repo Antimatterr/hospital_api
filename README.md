@@ -16,7 +16,7 @@ API Endpoints :
                           phone,\
                           password,\
                           image\
-                        }
+                        }\
                       : Request Headers\
                         {\
                           psychiatrist_id \
