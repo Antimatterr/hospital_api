@@ -1,6 +1,6 @@
 # hospital_api
-Libraries/Framework used : Express.js + Nodejs
-Database used : MySQL
+Libraries/Framework used : Express.js + Nodejs\
+Database used : MySQL\
 npm packages used : bcrypt (password encryption)
                   : morgan (for API request logs)
                   : multer (for multipart data)
