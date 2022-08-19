@@ -28,4 +28,4 @@ API Endpoints :
                       hospital ID\
                      }
                      
- ![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd3c580a8d81d627b10e?action=collection%2Fimport)
+ 
