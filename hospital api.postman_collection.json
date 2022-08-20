@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "27f0d1ec-070f-49c5-bcb5-54ce9836f5fd",
+		"name": "hospital api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17284940"
+	},
+	"item": [
+		{
+			"name": "REGISTER USER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "psychiatrist_id",
+						"value": "20",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test12",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ss222g@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "bangalore marathalli sanjayanagarar ",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12sidhantWW",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+18618990122",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/SID/Downloads/smiling dog.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "REGISTER USER",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "psychiatrist_id",
+								"value": "20",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test12",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ss222g@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "bangalore marathalli sanjayanagarar ",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12sidhantWW",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+18618990122",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/SID/Downloads/smiling dog.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "233"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e9-gDT2XTi7tTDLL0jiWPrAkQ0Z6DA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 Aug 2022 07:21:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"psychiatrist_id\": \"20\",\n    \"name\": \"test12\",\n    \"email\": \"ss222g@gmail.com\",\n    \"address\": \"bangalore marathalli sanjayanagarar \",\n    \"phone\": \"+18618990122\",\n    \"password\": \"12sidhantWW\",\n    \"image\": \"http://localhost:3000/uploads\\\\1660980102679-963161313.jpg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "HOSPITAL DETAIL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/hospital/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"hospital",
+						"4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "HOSPITAL DETAIL",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/hospital/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"hospital",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "308"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"134-28i5PKQUWPiJWTjj+PR4YOSKwOo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 20 Aug 2022 07:21:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Apollo Hospital\",\n    \"patient_count\": 11,\n    \"psychiatrist_count\": 5,\n    \"psychiatrist_details\": [\n        {\n            \"id\": 1,\n            \"name\": \"rohit mehra\",\n            \"patient_count\": 2\n        },\n        {\n            \"id\": 2,\n            \"name\": \"sameer\",\n            \"patient_count\": 2\n        },\n        {\n            \"id\": 3,\n            \"name\": \"gandhi\",\n            \"patient_count\": 2\n        },\n        {\n            \"id\": 4,\n            \"name\": \"kaka\",\n            \"patient_count\": 2\n        },\n        {\n            \"id\": 5,\n            \"name\": \"sid\",\n            \"patient_count\": 3\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

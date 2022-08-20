@@ -12,6 +12,11 @@ class CustomErrorHandler extends Error {
   static serverError(message = 'Internal server error') {
     return new CustomErrorHandler(500, message);
   }
+
+  static unAuthorized(message = 'unAuthorized') {
+    return new CustomErrorHandler(401, message);
+  }
+
 }
 
 

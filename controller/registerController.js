@@ -41,6 +41,7 @@ const registerController = {
 
       const psychiatrist_id = req.headers.psychiatrist_id;
 
+
       //validation 
       const passwordregex = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$';
 
@@ -82,7 +83,7 @@ const registerController = {
 
         pool.query(`SELECT hospital_id FROM lattice_psychiatrist WHERE id = ${psychiatrist_id}`, (err, results, fields) => {
           if (err) {
-            throw err
+            throw err;
           }
           hospital_id = results[0].hospital_id
 
@@ -105,9 +106,9 @@ const registerController = {
                 hashedPassword,
                 dbfile
               ],
-              (err, results) => {
-                if (err) {
-                  throw err
+              (error, results) => {
+                if (error) {
+                  throw error
                 }
                 // console.log(results);
               }
@@ -142,10 +143,10 @@ const registerController = {
           password,
           image: dbfile
         });
+        res.status(201).json(user);
       } catch (err) {
-        return next(err);
+        return next(CustomErrorHandler.unAuthorized());
       }
-      res.status(201).json(user);
 
     });
   }

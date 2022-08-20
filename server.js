@@ -4,6 +4,7 @@ import { APP_PORT } from "./config/index.js";
 import routes from './routes'
 import path from "path"
 import errorHandler from "./middlewares/errorHandler.js";
+import auth from "./middlewares/auth.js";
 
 const morgan = require('morgan')
 
