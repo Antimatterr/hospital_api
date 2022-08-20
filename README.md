@@ -29,3 +29,4 @@ API Endpoints :
                      }
                      
  
+#swaggerhub link : https://app.swaggerhub.com/apis/SINGHSIDMAIL23/Hospital-api/1.0.0
