@@ -39,7 +39,7 @@ const registerController = {
       // console.log(req.file.path);
       // console.log(req.body)
 
-      const psychiatrist_id = req.headers.psychiatrist_id;
+      const psychiatrist_id = req.headers.Authorization;
 
 
       //validation 
@@ -56,39 +56,38 @@ const registerController = {
 
       const { error } = registerSchema.validate(req.body);
 
-
-      if (error) {
+      function unlinkFile() {
         fs.unlink(`${appRoot}/${filePath}`, (err) => {
           if (err) {
             return next(CustomErrorHandler.serverError(err.message));
           }
         })
+      }
+
+      if (error) {
+        unlinkFile();
         return next(error); //validation error
       }
 
 
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-
       let hospital_id;
       let patient_count;
-
-
-
-
-
 
 
       function create(patient) {
 
         pool.query(`SELECT hospital_id FROM lattice_psychiatrist WHERE id = ${psychiatrist_id}`, (err, results, fields) => {
           if (err) {
+            unlinkFile();
             throw err;
           }
           hospital_id = results[0].hospital_id
 
           pool.query(`select count(*) as patient_count from lattice_patient group by psych_id having psych_id=${psychiatrist_id}`, (err, results, fields) => {
             if (err) {
+              unlinkFile();
               throw err
             }
             patient_count = Number(results[0].patient_count) + 1;
@@ -108,6 +107,7 @@ const registerController = {
               ],
               (error, results) => {
                 if (error) {
+                  unlinkFile();
                   throw error
                 }
                 // console.log(results);

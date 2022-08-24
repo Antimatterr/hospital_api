@@ -1,7 +1,8 @@
 import CustomErrorHandler from "../services/CustomErrorHandler";
 
 const auth = async (req, res, next) => {
-  let authHeader = req.headers.psychiatrist_id;
+
+  let authHeader = req.headers.authorization; //psychiatrist id or his token
   console.log(authHeader);
 
   if (!authHeader) {
