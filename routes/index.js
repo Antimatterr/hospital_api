@@ -4,7 +4,7 @@ import auth from "../middlewares/auth";
 
 const router = express.Router();
 
-router.post('/register', registerController.register)
+router.post('/register', auth, registerController.register)
 router.get('/hospital/:id', hospitalController.index)
 
 export default router
