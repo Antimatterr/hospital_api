@@ -4,6 +4,18 @@
 This is basic hospital API implementation using nodejs and mysql as database and swagger for API documentation.
 
 
+## Deployment
+
+To run this project on local machine
+
+```bash
+  npm install 
+```
+```bash
+  npm run dev
+```
+
+
 ## API Reference
 
 #### Get all details of hospital
