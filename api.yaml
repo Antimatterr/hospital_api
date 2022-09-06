@@ -16,10 +16,6 @@ schemes: [http, https]
 # securityDefinitions:
   # BasicAuth:
   #   type: basic
-  # ApiKeyAuth:
-  #   type: http
-  #   in: headers
-  #   name: Authorization
   # JWT:
   #   description:
   #   type: apiKey
