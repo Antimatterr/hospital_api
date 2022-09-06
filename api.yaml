@@ -13,7 +13,7 @@ info:
 
 schemes: [http, https]
 
-securityDefinitions:
+# securityDefinitions:
   # BasicAuth:
   #   type: basic
   # ApiKeyAuth:
@@ -26,7 +26,8 @@ securityDefinitions:
   #   name: Authorization
   #   in: header
 
- 
+host: localhost:3000/api
+basePath: /v1
 paths:
   /hospital/{hospitalid}:
     get:
