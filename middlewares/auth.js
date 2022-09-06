@@ -11,5 +11,15 @@ const auth = async (req, res, next) => {
   next();
 }
 
+// const patientAuth = async (req, res, next) => {
+//   let authHeader = req.header.authorization;
+//   console.log(authHeader);
+//   if (!authHeader) {
+//     return next(CustomErrorHandler.unAuthorized());
+//   }
+
+//   next();
+// }
+
 
 export default auth;
