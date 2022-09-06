@@ -1,0 +1,181 @@
+swagger: "2.0"
+info:
+  title: Hospital API
+  description: The hospital api consist of basic API's to registre the patient and to get hospital details
+  version: 1.0
+  contact:
+    email: ssid23121@gmail.com
+  server:
+    url: "http://localhost:3000"
+    description: "DEVELOPMENT SERVER"
+    url: "https://hospital.in"
+    description: "PRODUCTION SERVER"
+
+schemes: [http, https]
+
+securityDefinitions:
+  # BasicAuth:
+  #   type: basic
+  # ApiKeyAuth:
+  #   type: http
+  #   in: headers
+  #   name: Authorization
+  # JWT:
+  #   description:
+  #   type: apiKey
+  #   name: Authorization
+  #   in: header
+
+ 
+paths:
+  /hospital/{hospitalid}:
+    get:
+      summary: return hospital data
+      description: This provides various details about the hospital like patient and psychologist details in particular hospital. Use hospitalid as 3 for testing purpose
+      parameters:
+        - in: path
+          name: hospitalid
+          schema:
+            type: integer
+          required: true
+          description: The Hospital id whos details are needed to be fetched 
+      responses:
+        200:
+          description: Hospital details
+          schema: 
+            type: object
+            properties:
+              name:
+                type: string
+              patient_count:
+                type: integer
+              psychiatrist_count: 
+                type: integer
+              psychiatrist_details:
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    id:
+                      type: number
+                    name:
+                      type: string
+                    patient_count: 
+                      type: integer
+
+        404:
+          description: Not found
+          schema:
+            type: object
+            properties: 
+              status: 
+                type: integer
+              message:
+                type: string
+
+        400:
+          description: Bad request. hospitalid must be an integer
+          schema:
+            type: object
+            properties: 
+              status: 
+                type: integer
+              message:
+                type: string
+        500:
+          description: Internal server error
+          schema:
+            type: object
+            properties: 
+              status: 
+                type: integer
+              message:
+                type: string
+  
+  /register: 
+    post:
+      summary: register patient
+      produces:
+        - application/json
+      consumes:
+        - multipart/form-data
+      parameters: 
+        - name: authorization
+          in: header
+          type: string
+        - name: name
+          in: formData
+          description: name of patient
+          required: true
+          type: string
+        - name: email
+          in: formData
+          description: email of patient
+          required: true
+          type: string
+        - name: address
+          in: formData
+          description: address of patient
+          required: true
+          type: string
+        - name: password
+          in: formData
+          description: password of patient
+          required: true
+          type: string
+        - name: phone
+          in: formData
+          description: phone number of patient
+          required: true
+          type: string
+        - name: image
+          in: formData
+          description: image of patient
+          required: true
+          type: file
+        
+      responses:
+        201:
+          description: Patient registered with portal
+          schema:
+            type: object
+            properties: 
+              status: 
+                type: integer
+              message:
+                type: string
+
+        401:
+          description: Unauthorized
+          schema:
+            type: object
+            properties: 
+              message:
+                type: string
+        442:
+          description: validation error
+          schema:
+            type: object
+            properties: 
+              status: 
+                type: integer
+              message:
+                type: string
+        500:
+          description: Internal server error
+          schema:
+            type: object
+            properties: 
+              status: 
+                type: integer
+              message:
+                type: string
+        404:
+          description: Not found
+          schema:
+            type: object
+            properties: 
+              status: 
+                type: integer
+              message:
+                type: string

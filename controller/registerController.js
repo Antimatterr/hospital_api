@@ -6,7 +6,7 @@ import fs from "fs";
 import path from "path";
 import { APP_URL, CONNECTION_LIMIT } from "../config";
 import CustomErrorHandler from "../services/CustomErrorHandler";
-import { threadId } from "worker_threads";
+
 
 
 
@@ -36,10 +36,11 @@ const registerController = {
 
       const filePath = req.file.path;
       const dbfile = `${APP_URL}/${filePath}`;
-      // console.log(req.file.path);
+      console.log(req.file.path);
       // console.log(req.body)
 
-      const psychiatrist_id = req.headers.Authorization;
+      const psychiatrist_id = req.headers.authorization;
+      console.log(req.headers.authorization);
 
 
       //validation 
@@ -115,12 +116,12 @@ const registerController = {
 
             )
 
-            pool.query(`update lattice_psychiatrist set patient_count = ${patient_count} where id = ${psychiatrist_id}`), (err, results) => {
+            pool.query(`update lattice_psychiatrist set patient_count = ${patient_count} where id = ${psychiatrist_id}`, (err, results) => {
               if (err) {
                 throw err;
               }
 
-            }
+            })
 
           })
 
@@ -143,9 +144,9 @@ const registerController = {
           password,
           image: dbfile
         });
-        res.status(201).json(user);
+        res.status(201).json({ status: 1, message: "Patient registered successfully" });
       } catch (err) {
-        return next(CustomErrorHandler.unAuthorized());
+        return next(CustomErrorHandler.serverError());
       }
 
     });
