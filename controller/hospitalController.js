@@ -5,8 +5,10 @@ import CustomErrorHandler from "../services/CustomErrorHandler";
 
 const hospitalController = {
   async index(req, res, next) {
-    let hospital_id = req.params.id
-    console.log(hospital_id);
+    let hospital_id = req.params.id;
+    if (isNaN(hospital_id)) {
+      return res.status(400).json({ status: 0, message: "Bad request.hospitalid must be integer" })
+    }
 
     const data = {};
 

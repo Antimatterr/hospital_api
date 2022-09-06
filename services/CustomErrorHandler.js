@@ -17,6 +17,10 @@ class CustomErrorHandler extends Error {
     return new CustomErrorHandler(401, message);
   }
 
+  static resourceNotFound(message = 'resource not found') {
+    return new CustomErrorHandler(204, message);
+  }
+
 }
 
 
