@@ -35,6 +35,15 @@ This is basic hospital API implementation using nodejs and mysql as database and
 | :-------- | :------- | :-------------------------------- |
 | `Authorization` | `Integer(test purpose)`  | **Required**. Doctor UID  |
 
-#### add(num1, num2)
-Takes two numbers and returns the sum.
+
+## Swagger API link
+
+https://app.swaggerhub.com/apis/SINGHSIDMAIL23/hospital-api/1.0.0
+
+
+## Authors
+
+- [@Antimatterr](https://www.github.com/Antimatterr)
+
+
 
