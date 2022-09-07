@@ -9,5 +9,6 @@ export const {
   PASSWORD,
   DATABASE,
   CONNECTION_LIMIT,
-  APP_URL
+  APP_URL,
+  JWT_SECRET
 } = process.env;

@@ -21,6 +21,10 @@ class CustomErrorHandler extends Error {
     return new CustomErrorHandler(204, message);
   }
 
+  static alreadyExist(message) {
+    return new CustomErrorHandler(409, message);
+  }
+
 }
 
 
