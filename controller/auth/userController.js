@@ -69,6 +69,21 @@ const userController = {
 
 
     return res.status(201).json({ access_token: access_token, refresh_token: refresh_token });
+  },
+
+  async userProfile(req, res, next) {
+    try {
+      // console.log(req.user.id)
+      const user = await query(`select id, name, email, phone from lattice_user where id = ${req.user.id}`);
+      // console.log(user)
+      if (!user.length) {
+        return next(CustomErrorHandler.notFound());
+      }
+      // console.log(user)
+      res.json(user[0]);
+    } catch (err) {
+      return next(err)
+    }
   }
 
 }
