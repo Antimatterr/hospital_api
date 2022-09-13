@@ -22,7 +22,7 @@ schemes: [http, https]
   #   name: Authorization
   #   in: header
 
-host: localhost:3000/api
+host: http://157.245.100.190/api
 basePath: /v1
 paths:
   /hospital/{hospitalid}:
